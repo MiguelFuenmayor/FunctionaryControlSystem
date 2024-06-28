@@ -5,9 +5,9 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="flex items-center shrink-0">
-                    <a href="{{ route('home') }}">
+                    <x-nav-link href="{{ route('home') }}" :active="request()->routeIs('home')">
                         <x-application-mark class="block w-auto h-9" />
-                    </a>
+                    </x-nav-link>
                 </div>
 
                 <!-- Navigation Links -->
