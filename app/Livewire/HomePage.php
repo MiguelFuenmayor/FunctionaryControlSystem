@@ -1,6 +1,9 @@
 <?php
 
 namespace App\Livewire;
+use App\Models\Rank;
+use App\Models\Promo;
+use App\Models\Charge;
 use Livewire\Component;
 use App\Models\Dependency;
 use App\Models\Functionary;
@@ -12,18 +15,25 @@ use App\Charts\functionaries_per_dependency;
 class HomePage extends Component
 {
     public $functionaries_per_dependency;
+    public $functionaries_per_rank;
+    public $functionaries_per_promo;
+    public $functionaries_per_charge;
+    protected $listeners= ['look'];
+    public $value = 0;
     public function mount(){ 
         //GRAFICO DE FUNCIONARIOS POR DEPENDENCIA
-            // aprendiendo: pasa los arrays de numeros como string equisde
-            $dependencies = Dependency::all()->toArray();
-            //nombres de las dependencias
-            $this->functionaries_per_dependency[0]=array_column($dependencies, 'name');
-            $data = [];
-            foreach(array_column($dependencies,'id') as $dependency_id){
-                $functionaries = Functionary::whereBelongsTo(Dependency::find($dependency_id))->get();
-                $data[] = count($functionaries);
-            }
-            $this->functionaries_per_dependency[1] = implode(',', $data);        
+            Utilities::fillChartData(Dependency::class, $this->functionaries_per_dependency);
+        //GRAFICO DE FUNCIONARIOS POR RANGO
+            Utilities::fillChartData(Rank::class, $this->functionaries_per_rank);
+        //GRAFICO DE FUNCIONARIOS POR PROMO
+            Utilities::fillChartData(Promo::class, $this->functionaries_per_promo);
+        //GRAFICO DE FUNCIONARIES POR CHARGE
+            Utilities::fillChartData(Charge::class, $this->functionaries_per_charge);
+    }
+    public function look($id, $chart){
+        Utilities::look($id,$chart);
+        // preg_match('/dependency/', $chart, $main_axis);;
+        // $this->redirectRoute($main_axis[0].'-info',($id[0]+1));
     }
     public function render()
     {

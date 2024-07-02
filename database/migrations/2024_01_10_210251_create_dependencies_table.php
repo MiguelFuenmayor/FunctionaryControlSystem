@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('dependencies', function (Blueprint $table) {
             $table->id();
             $table->string('name',45);
-            $table->string('description',100);
+            $table->string('description',10000);
         });
     }
 

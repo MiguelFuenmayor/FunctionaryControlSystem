@@ -84,9 +84,11 @@
                     </div>
                     <div class="grow">
                     </div>
-                    <div class="place-self-start">
+                    <a> <!-- TODO LINK-->
+                    <div wire:click='check("promo")' class="cursor-pointer place-self-start">
                         {{ $functionary->getPromo() }}
                     </div>
+                    </a>
                 </div>
             </div>
             <div class="w-full p-0.5 rounded bg-slate-400">
@@ -103,36 +105,39 @@
             </div>
             <div class="w-full p-0.5 rounded bg-slate-400">
                 <div class="flex p-1 rounded bg-slate-100">
+                     <!-- TODO LINK-->
                     <div class="mr-1 place-self-start">
                         RANGO:
                     </div>
                     <div class="grow">
                     </div>
-                    <div class="place-self-start">
+                    <div wire:click='check("rank")' class="cursor-pointer place-self-start">
                         {{ $functionary->getRank() }}
                     </div>
                 </div>
             </div>
             <div class="w-full p-0.5 rounded bg-slate-400">
                 <div class="flex p-1 rounded bg-slate-100">
+                     <!-- TODO LINK-->
                     <div class="mr-1 place-self-start">
                         DEPENDENCIA:
                     </div>
                     <div class="grow">
                     </div>
-                    <div class="place-self-start">
+                    <div wire:click='check("dependency")' class="cursor-pointer place-self-start">
                         {{ $functionary->getDependency() }}
                     </div>
                 </div>
             </div>
             <div class="w-full p-0.5 rounded bg-slate-400">
                 <div class="flex p-1 rounded bg-slate-100">
+                     <!-- TODO LINK-->
                     <div class="mr-1 place-self-start">
                         CARGOS:
                     </div>
                     <div class="grow">
                     </div>
-                    <div class="place-self-start">
+                    <div  class="place-self-start">
                         {{ $charges }}
                     </div>
                 </div>

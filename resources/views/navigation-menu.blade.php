@@ -12,6 +12,9 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
+                    <x-nav-link href="{{ route('post-list') }}" :active="request()->routeIs('post-*')">
+                        {{ __('Reportes') }}
+                    </x-nav-link>
                     <x-nav-link href="{{ route('functionary-table') }}" :active="request()->routeIs('functionary-*')">
                         {{ __('Funcionarios') }}
                     </x-nav-link>

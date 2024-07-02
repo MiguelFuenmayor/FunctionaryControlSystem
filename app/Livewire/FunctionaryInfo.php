@@ -32,6 +32,10 @@ class FunctionaryInfo extends Component
         $this->redirectRoute("functionary-edit", $this->id,
                             True, True);
     }
+    public function check($table){
+
+        $this->redirectRoute($table.'-info', $this->functionary->$table->id);
+    }
 
     public function render()
     {

@@ -1,12 +1,13 @@
 <?php
 
 use App\Livewire\HomePage;
+use App\Livewire\PostList;
 use App\Livewire\RankInfo;
 use App\Livewire\PromoEdit;
+
 use App\Livewire\PromoInfo;
 
 use App\Livewire\RankTable;
-
 use App\Livewire\ChargeEdit;
 use App\Livewire\ChargeInfo;
 use App\Livewire\PromoTable;
@@ -64,5 +65,7 @@ Route::middleware([
     Route::get('/charge-create', ChargeCreate::class)->name('charge-create');
     // Rank Table AND Info
     Route::get('/rank-table', RankTable::class)->name('rank-table');
-    Route::get('/rank-info', RankInfo::class)->name('rank-info');
+    Route::get('/rank-info/{id}', RankInfo::class)->name('rank-info');
+    // Posts
+    Route::get('/posts', PostList::class)->name('post-list');
 });

@@ -24,6 +24,9 @@ public function updatedSearch()
 {
     $this->resetPage();
 }
+public function look($id,$chart){
+  Utilities::look($id, $chart);
+}
 public function mount(){
   $this->perPage=15;
   $this->columns=['name', 'description'];

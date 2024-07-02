@@ -66,8 +66,8 @@
                       @foreach ($rows as $row)
                       <tr>
                         @foreach ($columns as $column)
-                          <td scope="row"
-                          class="px-4 py-3 font-medium text-gray-900 whitespace-nowrap ">
+                          <td scope="row" 
+                          class="px-4 py-3 font-medium text-gray-900 truncate max-w-96 whitespace-nowrap ">
                           {{$row->$column}}
                           </td>
                         @endforeach

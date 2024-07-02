@@ -1,15 +1,14 @@
 <script>
-  // FUNCTIONARIEs PER DEPENDENCY CHART
   var options = {
         title: {
-          text: "Funcionarios por dependencia"
+          text: "Funcionarios por promo"
         },
         series: [{
           name : "Funcionarios",
-        data: [{{$functionaries_per_dependency[1]}}]
+        data: [{{$functionaries_per_promo[1]}}]
       }],
         chart: {
-        id: 'Functionaries-per-dependency',
+        id: 'functionaries-per-promo',
         type: 'bar',
         height: 350,
         events: {
@@ -31,15 +30,14 @@
       },
       xaxis: {
         categories: [
-          @foreach ($functionaries_per_dependency[0] as $name)
+          @foreach ($functionaries_per_promo[0] as $name)
 
             '{{$name}}',
           @endforeach
         ],
-      },
+      }
       };
 
-      var Chart = new ApexCharts(document.querySelector("#functionaries-per-dependency-chart"), options);
+      var Chart = new ApexCharts(document.querySelector("#functionaries-per-promo-chart"), options);
       Chart.render();
-
 </script>
